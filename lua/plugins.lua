@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
         ---------------------------------------
 		use { 'vijaymarupudi/nvim-fzf' }
 		use { 'tanvirtin/monokai.nvim' }
+		use { 'ofirgall/ofirkai.nvim' }
+
 		
 		-- auto-completion
 		use { 'neovim/nvim-lspconfig' }

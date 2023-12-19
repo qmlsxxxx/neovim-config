@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -115,6 +120,16 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/ivan/.local/share/nvim/site/pack/packer/opt/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -164,6 +179,11 @@ _G.packer_plugins = {
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["ofirkai.nvim"] = {
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/ofirkai.nvim",
+    url = "https://github.com/ofirgall/ofirkai.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -173,6 +193,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["remember.nvim"] = {
+    config = { " require('remember') " },
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/remember.nvim",
+    url = "https://github.com/vladdoster/remember.nvim"
   },
   tagbar = {
     loaded = true,
@@ -184,10 +210,21 @@ _G.packer_plugins = {
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ultisnips = {
     loaded = true,
     path = "/home/ivan/.local/share/nvim/site/pack/packer/start/ultisnips",
     url = "https://github.com/SirVer/ultisnips"
+  },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/home/ivan/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
   },
   ["vista.vim"] = {
     loaded = true,
@@ -197,16 +234,24 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('config.nvim-cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: remember.nvim
+time([[Config for remember.nvim]], true)
+ require('remember') 
+time([[Config for remember.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd cmp-cmdline ]]
 vim.cmd [[ packadd cmp-path ]]
-vim.cmd [[ packadd cmp-nvim-lsp ]]
 vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-nvim-lsp ]]
+vim.cmd [[ packadd cmp-cmdline ]]
 time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false

@@ -15,6 +15,7 @@ vim.opt.history = 1000
 vim.opt.ruler = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.cursorline = true
 
 require('impatient')
 require('colorscheme')
