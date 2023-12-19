@@ -60,6 +60,28 @@ return require('packer').startup(function(use)
 		use { 'majutsushi/tagbar' }
 		use { 'liuchengxu/vista.vim' }
 			
+		-- Telescope fuzzy finder --
+		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
+		
+		-- File Explorer --
+		use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
+		
+		-- Tabline --
+		use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}		
+		use { 'lewis6991/gitsigns.nvim' } -- OPTIONAL: for git status
+		use { 'romgrk/barbar.nvim' }
+
+		-- terminal --
+		use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+			require("toggleterm").setup()
+		end}
+
+		-- Startup time --
+		use { 'dstein64/vim-startuptime' }
+		use { 'lewis6991/impatient.nvim' } 
+
+		use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
+		
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then

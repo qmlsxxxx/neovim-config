@@ -18,8 +18,8 @@ filetype off
 set t_Co=256
 set bg=dark
 
-set laststatus=2
-set statusline=File:\ %t\%r%h%w\ [%{&ff},%{&fileencoding},%Y]\ %m%=\ [AscII=\%03.3b]\ [Hex=\%02.2B]\ [Pos=%l,%v,%p%%]\ [LINE=%L]
+"set laststatus=2
+"set statusline=File:\ %t\%r%h%w\ [%{&ff},%{&fileencoding},%Y]\ %m%=\ [AscII=\%03.3b]\ [Hex=\%02.2B]\ [Pos=%l,%v,%p%%]\ [LINE=%L]
 
 set history=1000   " keep 1000 lines of command line history
 set ruler          " show the cursor position all the time
@@ -40,19 +40,19 @@ syntax on
 set ffs=unix,dos,mac
 
 "tab function hotkey
-nmap tl :tabnext<CR>
-nmap th :tabprev<CR>
-nmap tn :tabnew<CR>
-nmap tc :tabclose<CR>
+"nmap tl :tabnext<CR>
+"nmap th :tabprev<CR>
+"nmap tn :tabnew<CR>
+"nmap tc :tabclose<CR>
 
-nmap <SPACE> :noh<CR>
+"nmap <SPACE> :noh<CR>
 
-map > <C-w>><C-w>
-map < <C-w><<C-w>
+"map > <C-w>><C-w>
+"map < <C-w><<C-w>
 
 " <F12> for TagbarToggle
 " nmap <ESC>O[ :TagbarToggle<CR>
-nmap <ESC>O[ :Vista!!<CR>
+" nmap <ESC>O[ :Vista!!<CR>
 
 
 call plug#begin('~/.local/share/nvim/site/plugged')
