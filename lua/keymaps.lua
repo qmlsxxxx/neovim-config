@@ -5,7 +5,6 @@ local opts = { noremap = true, silent = false }
 map('n', '<SPACE>', ':noh<CR>', opts)
 
 map('n', '<leader>rr', '<cmd>lua ReloadConfig()<CR>', opts)
-map('n', '<leader>bb', '<cmd>lua ReloadConfig()<CR>', opts)
 
 -- Resize with arrowr
 -- delta: 2 lines
@@ -45,6 +44,7 @@ map('n', '<ESC>O[', ':Vista!!<CR>', opts)
 
 -- NvimTree
 map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)
+map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>', opts)
 
 -- Toggleterm
 map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
