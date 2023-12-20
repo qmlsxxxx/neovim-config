@@ -16,12 +16,14 @@ vim.opt.ruler = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.cursorline = true
+vim.opt.backup = false
+vim.opt.swapfile = false
 
+require('plugins')
 require('impatient')
 require('colorscheme')
-require('keymaps')
-require('plugins')
 require('lsp')
+require('keymaps')
 --require('reload')
 
 require('config/nvim-telescope')
