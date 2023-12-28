@@ -5,6 +5,7 @@
 vim.opt.number = true
 vim.opt.mouse = 'a'
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.background = 'dark'
 vim.opt.hlsearch = true
@@ -33,3 +34,6 @@ require('config/nvim-cmp')
 require('config/nvim-barbar')
 require('config/nvim-toggleterm')
 require('config/nvim-remember')
+require('config/nvim-toggle-lsp-diagnostics')
+require('config/nvim-dashboard')
+

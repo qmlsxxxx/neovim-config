@@ -6,6 +6,8 @@ map('n', '<SPACE>', ':noh<CR>', opts)
 
 map('n', '<leader>rr', '<cmd>lua ReloadConfig()<CR>', opts)
 
+map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>', opts)
+
 -- Resize with arrowr
 -- delta: 2 lines
 map('n', '>', '<C-w>><C-w>', opts)
@@ -25,7 +27,7 @@ map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 -- Move to previous/next
 map('n', 'th', ':BufferPrevious<CR>', opts)
 map('n', 'tl', ':BufferNext<CR>', opts)
-map('n', 'tc', ':BufferClose<CR>', opts)
+map('n', 'tc', ':BufferClose!<CR>', opts)
 
 -- Goto buffer in prsition...
 map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
@@ -40,7 +42,8 @@ map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
 map('n', '<A-0>', ':BufferLast<CR>', opts)
 
 -- taglist
-map('n', '<ESC>O[', ':Vista!!<CR>', opts)
+-- map('n', '<ESC>O[', ':Vista!!<CR>', opts)
+map('n', '<ESC>O[', ':TagbarToggle<CR>', opts)
 
 -- NvimTree
 map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)

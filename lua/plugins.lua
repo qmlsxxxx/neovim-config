@@ -37,10 +37,11 @@ return require('packer').startup(function(use)
         -- NOTE: PUT YOUR THIRD PLUGIN HERE --
         ---------------------------------------
 		use { 'vijaymarupudi/nvim-fzf' }
+
+		-- colorscheme
 		use { 'tanvirtin/monokai.nvim' }
 		use { 'ofirgall/ofirkai.nvim' }
 
-		
 		-- auto-completion
 		use { 'neovim/nvim-lspconfig' }
 		use { 'hrsh7th/nvim-cmp', config = [[require('config.nvim-cmp')]] }
@@ -53,42 +54,62 @@ return require('packer').startup(function(use)
 		-- For ultisnips users.
 		use { 'SirVer/ultisnips' }
 		use { 'quangnguyen30192/cmp-nvim-ultisnips' }
-		
+
 		-- lsp
 		use { 'williamboman/mason.nvim' }
 		use { 'williamboman/mason-lspconfig.nvim'}
-		
+
 		-- taglist
 		use { 'majutsushi/tagbar' }
-		use { 'liuchengxu/vista.vim' }
-			
+		-- use { 'liuchengxu/vista.vim' }
+		-- use { 'simrat39/symbols-outline.nvim' }
+
 		-- Telescope fuzzy finder --
 		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
-		
+    	use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.1', run = ':TSUpdate' }
+
 		-- File Explorer --
 		use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
-		
+
 		-- Tabline --
-		use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}		
+		use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 		use { 'lewis6991/gitsigns.nvim' } -- OPTIONAL: for git status
 		use { 'romgrk/barbar.nvim' }
 
 		-- terminal --
 		use {"akinsho/toggleterm.nvim", tag = '*', config = function()
 			require("toggleterm").setup()
-		end}
+		end }
+		-- use {'voldikss/vim-floaterm'}
 
 		-- Startup time --
 		use { 'dstein64/vim-startuptime' }
-		use { 'lewis6991/impatient.nvim' } 
+		use { 'lewis6991/impatient.nvim' }
 
 		use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
-		
+
+		-- Startup page
+		use { 'nvimdev/dashboard-nvim', event = 'VimEnter', config = function()
+			require('dashboard').setup {
+      		-- config
+    		}
+  			end,
+  			requires = {'nvim-tree/nvim-web-devicons'}
+		}
+		--use {
+	    --	'goolord/alpha-nvim',
+    	--	requires = { 'nvim-tree/nvim-web-devicons' },
+    	--	config = function ()
+ 		--       	require'alpha'.setup(require'alpha.themes.startify'.config)
+   		--	 end
+		--}
+
+		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
             require('packer').sync()
         end
     end)
-
 
