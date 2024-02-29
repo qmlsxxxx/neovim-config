@@ -2,11 +2,47 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = false }
 
+--[[
+#Useful hotkey functions
+
+\cd : change working directory to current opened file
+\ff : find files under current working directory
+\fg : live grep under current working directory
+\fj : fuzzy find at current buffer
+\fb : grep buffer
+\fh : help tags
+<C-e> : toggle NvimTree file explorer 
+<C-o> : NvimTree jump to current opened file location in file explorer
+<C-f> : grep pattern in current buffer tab, results show in new buffer tab
+F12 : toggle taglist
+
+#Programming languages
+
+gd : goto definition
+gD : goto declaration
+gr : goto references
+gi : goto implementation
+K  : vim.lsp.buf.hover, opts)
+<C-k> : vim.lsp.buf.signature_help
+a<space>D : vim.lsp.buf.type_definition 
+<space>wa : vim.lsp.buf.add_workspace_folder
+<space>wr : vim.lsp.buf.remove_workspace_folder
+<space>wl : 
+<space>rn : 
+<space>ca : 
+
+<space>e : vim.diagnostic.open_float
+[d : vim.diagnostic.goto_prev
+]d : vim.diagnostic.goto_next
+<space>q : vim.diagnostic.setloclist
+
+--]]
+
 map('i', '<S-Tab>', '<C-d>', opts)
 
 map('n', '<SPACE>', ':noh<CR>', opts)
-map('n', '<leader>rr', '<cmd>lua ReloadConfig()<CR>', opts)
-map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>', opts)
+map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>| change working directory to current opened file', opts)
+map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>| grep pattern in current buffer tab, results show in new buffer tab', opts)
 
 -- Resize with arrowr
 -- delta: 2 lines
@@ -43,11 +79,11 @@ map('n', '<A-0>', ':BufferLast<CR>', opts)
 
 -- taglist
 -- map('n', '<ESC>O[', ':Vista!!<CR>', opts)
-map('n', '<ESC>O[', ':TagbarToggle<CR>', opts)
+map('n', '<ESC>O[', ':TagbarToggle<CR>| toggle taglist', opts)
 
 -- NvimTree
-map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)
-map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>', opts)
+map('n', '<C-e>', ':NvimTreeToggle<CR>| jump to current opened file location in file explorer', opts)
+map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>| toggle NvimTree file explorer', opts)
 
 -- Toggleterm
 map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
@@ -56,13 +92,13 @@ map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fj', builtin.current_buffer_fuzzy_find, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.keymap.set('n', '<leader>fj', builtin.current_buffer_fuzzy_find, {})
 
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap = true, silent = true }
+-- local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -78,23 +114,23 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-	vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)	
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)	
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    local lspopts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, lspopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, lspopts)
+	vim.keymap.set('n', 'gr', vim.lsp.buf.references, lspopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, lspopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, lspopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, lspopts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, lspopts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, lspopts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, lspopts)
     vim.keymap.set('n', '<space>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)    
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
+    end, lspopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, lspopts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, lspopts)
+    --vim.keymap.set('n', '<space>f', function()
+    --  vim.lsp.buf.format { async = true }
+    --end, lspopts)
   end,
 })
