@@ -87,6 +87,7 @@ map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>| toggle NvimTree file explorer',
 
 -- Toggleterm
 map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
+map("t", "<Esc>n", '<C-\\><C-n><Esc>', opts)
 
 -- Telescope
 local builtin = require('telescope.builtin')
