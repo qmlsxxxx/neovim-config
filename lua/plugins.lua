@@ -96,6 +96,10 @@ return require('packer').startup(function(use)
   			end,
   			requires = {'nvim-tree/nvim-web-devicons'}
 		}
+
+		-- git blame
+		use { 'FabijanZulj/blame.nvim' }
+
 		--use {
 	    --	'goolord/alpha-nvim',
     	--	requires = { 'nvim-tree/nvim-web-devicons' },
