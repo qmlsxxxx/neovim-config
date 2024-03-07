@@ -110,6 +110,9 @@ return require('packer').startup(function(use)
  		--       	require'alpha'.setup(require'alpha.themes.startify'.config)
    		--	 end
 		--}
+	
+		-- bookmarks
+		use { 'tomasky/bookmarks.nvim' }
 
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
 

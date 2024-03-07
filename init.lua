@@ -36,4 +36,5 @@ require('config/nvim-toggleterm')
 require('config/nvim-remember')
 require('config/nvim-toggle-lsp-diagnostics')
 require('config/nvim-dashboard')
+require('config/nvim-bookmarks')
 

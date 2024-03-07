@@ -135,3 +135,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --end, lspopts)
   end,
 })
+
+local bm = require "bookmarks"
+vim.keymap.set("n","mm",bm.bookmark_toggle) -- add or remove bookmark at current line
+vim.keymap.set("n","mi",bm.bookmark_ann) -- add or edit mark annotation at current line
+vim.keymap.set("n","mc",bm.bookmark_clean) -- clean all marks in local buffer
+vim.keymap.set("n","mn",bm.bookmark_next) -- jump to next mark in local buffer
+vim.keymap.set("n","mp",bm.bookmark_prev) -- jump to previous mark in local buffer
+vim.keymap.set("n","ml",':Telescope bookmarks list<CR>') -- show marked file list in telescope window
+
