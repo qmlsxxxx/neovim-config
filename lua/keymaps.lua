@@ -43,6 +43,7 @@ map('i', '<S-Tab>', '<C-d>', opts)
 map('n', '<SPACE>', ':noh<CR>', opts)
 map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>| change working directory to current opened file', opts)
 map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>| grep pattern in current buffer tab, results show in new buffer tab', opts)
+map('n', '<F3>', '*N', opts)
 
 -- Resize with arrowr
 -- delta: 2 lines
