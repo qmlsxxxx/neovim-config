@@ -66,7 +66,9 @@ return require('packer').startup(function(use)
 
 		-- Telescope fuzzy finder --
 		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
-    	use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.1', run = ':TSUpdate' }
+    	        use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
+
+		use { 'nvim-tree/nvim-web-devicons', tag='v0.99' }
 
 		-- File Explorer --
 		use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
@@ -91,8 +93,8 @@ return require('packer').startup(function(use)
 		-- Startup page
 		use { 'nvimdev/dashboard-nvim', event = 'VimEnter', config = function()
 			require('dashboard').setup {
-      		-- config
-    		}
+      				-- config
+	    		}
   			end,
   			requires = {'nvim-tree/nvim-web-devicons'}
 		}
