@@ -38,3 +38,4 @@ require('config/nvim-toggle-lsp-diagnostics')
 require('config/nvim-bookmarks')
 --require('config/nvim-dashboard')
 
+--require('lsp/setup')
