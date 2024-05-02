@@ -41,8 +41,8 @@ a<space>D : vim.lsp.buf.type_definition
 map('i', '<S-Tab>', '<C-d>', opts)
 
 map('n', '<SPACE>', ':noh<CR>', opts)
-map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>| change working directory to current opened file', opts)
-map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>| grep pattern in current buffer tab, results show in new buffer tab', opts)
+map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', opts)
+map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>', opts)
 map('n', '<F3>', '*N', opts)
 
 -- Resize with arrowr
@@ -53,7 +53,7 @@ map('n', '<', '<C-w><<C-w>', opts)
 -- Better window navigation
 map('n', '<C-h>', '<C-w>h', opts)
 map('n', '<C-j>', '<C-w>j', opts)
-map('n', '<C-k>', 'rC-w>k', opts)
+map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<C-l>', '<C-w>l', opts)
 
 map('n', '<C-Up>', ':resize -2<CR>', opts)
@@ -83,8 +83,8 @@ map('n', '<A-0>', ':BufferLast<CR>', opts)
 map('n', '<ESC>O[', ':TagbarToggle<CR>| toggle taglist', opts)
 
 -- NvimTree
-map('n', '<C-e>', ':NvimTreeToggle<CR>| jump to current opened file location in file explorer', opts)
-map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>| toggle NvimTree file explorer', opts)
+map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)
+map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>', opts)
 
 -- Toggleterm
 map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
