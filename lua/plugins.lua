@@ -87,7 +87,6 @@ return require('packer').startup(function(use)
 		-- Startup time --
 		use { 'dstein64/vim-startuptime' }
 		use { 'lewis6991/impatient.nvim' }
-
 		use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
 
 		-- Startup page
@@ -115,11 +114,14 @@ return require('packer').startup(function(use)
 	
 		-- bookmarks
 		use { 'tomasky/bookmarks.nvim' }
-
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
-
-		 use {'williamboman/nvim-lsp-installer'}
-
+		use {'williamboman/nvim-lsp-installer'}
+		use { 'anuvyklack/pretty-fold.nvim', 
+			config = function()
+				require('pretty-fold').setup()
+			end
+		}
+		use { 'Makaze/AnsiEsc' }
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins

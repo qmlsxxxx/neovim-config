@@ -19,6 +19,9 @@ vim.opt.smartindent = true
 vim.opt.cursorline = true
 vim.opt.backup = false
 vim.opt.swapfile = false
+vim.opt.foldmethod = 'syntax'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
 
 require('plugins')
 require('impatient')
@@ -36,6 +39,7 @@ require('config/nvim-toggleterm')
 require('config/nvim-remember')
 require('config/nvim-toggle-lsp-diagnostics')
 require('config/nvim-bookmarks')
+require('config/nvim-fold')
 --require('config/nvim-dashboard')
-
 --require('lsp/setup')
+

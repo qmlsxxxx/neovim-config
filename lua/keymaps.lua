@@ -80,7 +80,7 @@ map('n', '<A-0>', ':BufferLast<CR>', opts)
 
 -- taglist
 -- map('n', '<ESC>O[', ':Vista!!<CR>', opts)
-map('n', '<ESC>O[', ':TagbarToggle<CR>| toggle taglist', opts)
+map('n', '<ESC>O[', ':TagbarToggle<CR>', opts)
 
 -- NvimTree
 map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)
@@ -94,7 +94,8 @@ map("t", "<Esc>n", '<C-\\><C-n><Esc>', opts)
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fj', builtin.current_buffer_fuzzy_find, {})
+---vim.keymap.set('n', '<leader>fj', builtin.current_buffer_fuzzy_find, {})
+vim.keymap.set('n', '<leader>fj', function() builtin.live_grep({search_dirs={vim.fn.expand("%:p")}}) end,  {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
