@@ -11,6 +11,7 @@ require('telescope').setup {
 	  find_files = { theme = "ivy", layout_config = { height = 30 } },
 	  live_grep = { theme = "ivy", layout_config = { height = 30 } },
 	  buffers = { theme = "ivy", layout_config = { height = 30 } },
-	  bookmarks = { theme = "ivy", layout_config = { height = 30 } }
+	  bookmarks = { theme = "ivy", layout_config = { height = 30 } },
+	  diagnostics = { theme = "ivy", layout_config = { height = 30 } }
   }
 }
