@@ -111,18 +111,19 @@ return require('packer').startup(function(use)
  		--       	require'alpha'.setup(require'alpha.themes.startify'.config)
    		--	 end
 		--}
-	
+
 		-- bookmarks
 		use { 'tomasky/bookmarks.nvim' }
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
 		use {'williamboman/nvim-lsp-installer'}
-		use { 'anuvyklack/pretty-fold.nvim', 
+		use { 'anuvyklack/pretty-fold.nvim',
 			config = function()
 				require('pretty-fold').setup()
 			end
 		}
 		use { 'Makaze/AnsiEsc' }
 
+		use { 'ntpeters/vim-better-whitespace' }
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
