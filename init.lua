@@ -5,6 +5,7 @@
 vim.opt.number = true
 vim.opt.mouse = 'a'
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = false
 vim.opt.background = 'dark'
@@ -22,6 +23,7 @@ vim.opt.swapfile = false
 vim.opt.foldmethod = 'syntax'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = false
+vim.opt.fileformats = 'unix,dos'
 
 require('plugins')
 require('impatient')
@@ -40,6 +42,7 @@ require('config/nvim-remember')
 require('config/nvim-toggle-lsp-diagnostics')
 require('config/nvim-bookmarks')
 require('config/nvim-fold')
+require('config/nvim-whitespace')
 --require('config/nvim-dashboard')
 --require('lsp/setup')
 
