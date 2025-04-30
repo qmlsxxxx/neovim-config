@@ -2,29 +2,6 @@
 --local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 --vim.cmd.source(vimrc)
 
-vim.opt.number = true
-vim.opt.mouse = 'a'
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
-vim.opt.background = 'dark'
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.history = 1000
-vim.opt.ruler = true
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cursorline = true
-vim.opt.backup = false
-vim.opt.swapfile = false
-vim.opt.foldmethod = 'syntax'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.opt.foldenable = false
-vim.opt.fileformats = 'unix,dos'
-
 require('plugins')
 require('impatient')
 require('colorscheme')
@@ -46,3 +23,23 @@ require('config/nvim-whitespace')
 --require('config/nvim-dashboard')
 --require('lsp/setup')
 
+vim.opt.number = true
+vim.opt.mouse = 'a'
+vim.opt.background = 'dark'
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.history = 1000
+vim.opt.ruler = true
+vim.opt.cursorline = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.foldmethod = 'syntax'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
+vim.opt.fileformats = { "unix", "dos", "mac" }
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true

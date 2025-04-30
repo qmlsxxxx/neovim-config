@@ -80,7 +80,8 @@ map('n', '<A-0>', ':BufferLast<CR>', opts)
 
 -- taglist
 -- map('n', '<ESC>O[', ':Vista!!<CR>', opts)
-map('n', '<ESC>O[', ':TagbarToggle<CR>', opts)
+-- map('n', '<Esc>[24~', ':TagbarToggle<CR>', opts)
+map('n', '<F12>', ':TagbarToggle<CR>', opts)
 
 -- NvimTree
 map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)

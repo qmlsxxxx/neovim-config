@@ -66,7 +66,7 @@ return require('packer').startup(function(use)
 
 		-- Telescope fuzzy finder --
 		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
-    	        use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
+    	use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
 
 		use { 'nvim-tree/nvim-web-devicons', tag='v0.99' }
 
@@ -115,7 +115,8 @@ return require('packer').startup(function(use)
 		-- bookmarks
 		use { 'tomasky/bookmarks.nvim' }
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
-		use {'williamboman/nvim-lsp-installer'}
+		use { 'williamboman/nvim-lsp-installer'}
+
 		use { 'anuvyklack/pretty-fold.nvim',
 			config = function()
 				require('pretty-fold').setup()
