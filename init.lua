@@ -20,8 +20,12 @@ require('config/nvim-toggle-lsp-diagnostics')
 require('config/nvim-bookmarks')
 require('config/nvim-fold')
 require('config/nvim-whitespace')
+require('config/nvim-treesitter')
 --require('config/nvim-dashboard')
 --require('lsp/setup')
+
+vim.g.editorconfig = false
+vim.g.editorconfig_enable = false
 
 vim.opt.number = true
 vim.opt.mouse = 'a'
@@ -42,4 +46,15 @@ vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+---vim.opt.expandtab = true
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {"c", "cpp"},
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.expandtab = true
+  end,
+  group = vim.api.nvim_create_augroup("CustomCSettings", { clear = true })
+})

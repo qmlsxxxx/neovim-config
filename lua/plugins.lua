@@ -66,7 +66,8 @@ return require('packer').startup(function(use)
 
 		-- Telescope fuzzy finder --
 		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
-    	use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
+    	--use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
+		use { 'nvim-treesitter/nvim-treesitter' }
 
 		use { 'nvim-tree/nvim-web-devicons', tag='v0.99' }
 
