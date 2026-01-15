@@ -44,17 +44,19 @@ vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = false
 vim.opt.fileformats = { "unix", "dos", "mac" }
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.opt.softtabstop = 0
 vim.opt.shiftwidth = 4
----vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt_local.expandtab = false
+vim.opt.listchars = "tab:>-"
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {"c", "cpp"},
+  pattern = {"c", "cpp", "bitbake"},
   callback = function()
     vim.opt_local.tabstop = 4
     vim.opt_local.softtabstop = 4
     vim.opt_local.shiftwidth = 4
-    vim.opt_local.expandtab = true
+    vim.opt_local.expandtab = false
   end,
   group = vim.api.nvim_create_augroup("CustomCSettings", { clear = true })
 })
