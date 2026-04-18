@@ -10,10 +10,11 @@ require'barbar'.setup {
 
   -- Automatically hide the tabline when there are this many buffers left.
   -- Set to any value >=0 to enable.
-  -- auto_hide = false,
+  auto_hide = false,
 
   -- Enable/disable current/total tabpages indicator (top right corner)
   tabpages = true,
+  scroll_offset = 5,
 
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer
@@ -112,14 +113,14 @@ require'barbar'.setup {
 
   -- Set the filetypes which barbar will offset itself for
   sidebar_filetypes = {
-    -- Use the default values: {event = 'BufWinLeave', text = nil}
-    NvimTree = true,
-    -- Or, specify the text used for the offset:
-    -- undotree = {text = 'undotree'},
-    -- Or, specify the event which the sidebar executes when leaving:
-    -- ['neo-tree'] = {event = 'BufWipeout'},
-    -- Or, specify both
-    -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+  -- Use the default values: {event = 'BufWinLeave', text = nil}
+  NvimTree = true,
+  -- Or, specify the text used for the offset:
+  -- undotree = {text = 'undotree'},
+  -- Or, specify the event which the sidebar executes when leaving:
+  -- ['neo-tree'] = {event = 'BufWipeout'},
+  -- Or, specify both
+  -- Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
   },
 
   -- New buffer letters are assigned in this order. This order is

@@ -38,8 +38,6 @@ a<space>D : vim.lsp.buf.type_definition
 
 --]]
 
-map('i', '<S-Tab>', '<C-d>', opts)
-
 map('n', '<SPACE>', ':noh<CR>', opts)
 map('n', '<leader>cd', ':cd %:p:h<CR>:pwd<CR>', opts)
 map('n', '<C-f>', ':tabnew|0r!grep -n  #<Left><Left>', opts)

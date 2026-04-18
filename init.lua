@@ -11,6 +11,7 @@ require('keymaps')
 
 require('config/nvim-telescope')
 require('config/nvim-tree')
+require('config/nvim-luasnip')
 require('config/nvim-cmp')
 --require('config/nvim-bufferline')
 require('config/nvim-barbar')
@@ -21,7 +22,7 @@ require('config/nvim-bookmarks')
 require('config/nvim-fold')
 require('config/nvim-whitespace')
 require('config/nvim-treesitter')
---require('config/nvim-dashboard')
+require('config/nvim-dashboard')
 --require('lsp/setup')
 
 vim.g.editorconfig = false

@@ -116,7 +116,6 @@ return require('packer').startup(function(use)
 		-- bookmarks
 		use { 'tomasky/bookmarks.nvim' }
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
-		use { 'williamboman/nvim-lsp-installer'}
 
 		use { 'anuvyklack/pretty-fold.nvim',
 			config = function()
