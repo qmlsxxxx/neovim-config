@@ -10,7 +10,7 @@ require('mason').setup({
 
 require('mason-lspconfig').setup({
     -- A list of servers to automatically install if they're not already installed
-    ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer' },
+    ensure_installed = { 'clangd', 'lua_ls', 'rust_analyzer', 'pyright', 'bashls' },
     automatic_enable = false,
 })
 
@@ -31,4 +31,20 @@ vim.lsp.config('clangd', {
 })
 
 vim.lsp.enable('clangd')
+
+-- Python LSP (pyright)
+vim.lsp.config('pyright', {
+    cmd = { 'pyright-langserver', '--stdio' },
+    filetypes = { 'python' },
+    root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'pyrightconfig.json', '.git' },
+})
+vim.lsp.enable('pyright')
+
+-- Bash LSP
+vim.lsp.config('bashls', {
+    cmd = { 'bash-language-server', 'start' },
+    filetypes = { 'sh', 'bash', 'zsh' },
+    root_markers = { '.git', 'Makefile' },
+})
+vim.lsp.enable('bashls')
 
