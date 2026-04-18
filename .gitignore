@@ -1,0 +1,10 @@
+# Packer
+plugin/packer_compiled.lua
+
+# Swap files
+*.swp
+*.swo
+*~
+
+# Session
+Session.vim
