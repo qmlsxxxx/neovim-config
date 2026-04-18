@@ -89,14 +89,12 @@ map('n', '<C-o>', ':NvimTreeFindFileToggle!<CR>', opts)
 map("t", "<Esc>j", '<C-\\><C-n><C-w><C-w>v<Esc>', opts)
 map("t", "<Esc>n", '<C-\\><C-n><Esc>', opts)
 
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
----vim.keymap.set('n', '<leader>fj', builtin.current_buffer_fuzzy_find, {})
-vim.keymap.set('n', '<leader>fj', function() builtin.live_grep({search_dirs={vim.fn.expand("%:p")}}) end,  {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+-- Telescope (lazy load)
+vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end, {})
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end, {})
+vim.keymap.set('n', '<leader>fj', function() require('telescope.builtin').live_grep({search_dirs={vim.fn.expand("%:p")}}) end, {})
+vim.keymap.set('n', '<leader>fb', function() require('telescope.builtin').buffers() end, {})
+vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end, {})
 
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -137,11 +135,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-local bm = require "bookmarks"
-vim.keymap.set("n","mm",bm.bookmark_toggle) -- add or remove bookmark at current line
-vim.keymap.set("n","mi",bm.bookmark_ann) -- add or edit mark annotation at current line
-vim.keymap.set("n","mc",bm.bookmark_clean) -- clean all marks in local buffer
-vim.keymap.set("n","mn",bm.bookmark_next) -- jump to next mark in local buffer
-vim.keymap.set("n","mp",bm.bookmark_prev) -- jump to previous mark in local buffer
-vim.keymap.set("n","ml",':Telescope bookmarks list<CR>') -- show marked file list in telescope window
+vim.keymap.set("n","mm",function() require("bookmarks").bookmark_toggle() end)
+vim.keymap.set("n","mi",function() require("bookmarks").bookmark_ann() end)
+vim.keymap.set("n","mc",function() require("bookmarks").bookmark_clean() end)
+vim.keymap.set("n","mn",function() require("bookmarks").bookmark_next() end)
+vim.keymap.set("n","mp",function() require("bookmarks").bookmark_prev() end)
+vim.keymap.set("n","ml",':Telescope bookmarks list<CR>')
 

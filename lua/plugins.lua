@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
         ---------------------------------------
         -- NOTE: PUT YOUR THIRD PLUGIN HERE --
         ---------------------------------------
-		use { 'vijaymarupudi/nvim-fzf' }
+		use { 'vijaymarupudi/nvim-fzf', cmd = 'FZF' }
 
 		-- colorscheme
 		use { 'tanvirtin/monokai.nvim' }
@@ -51,39 +51,48 @@ return require('packer').startup(function(use)
 		use { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' } -- cmdline auto-completion
 		use { 'onsails/lspkind-nvim' }
 
-		-- For ultisnips users.
-		use { 'SirVer/ultisnips' }
-		use { 'quangnguyen30192/cmp-nvim-ultisnips' }
+		-- LuaSnip
+		use 'L3MON4D3/LuaSnip'             -- snippet 引擎
+		use 'saadparwaiz1/cmp_luasnip'      -- cmp 來源
+		use 'rafamadriz/friendly-snippets'  -- 預設 snippets（VSCode 格式）
 
-		-- lsp
+		-- lsp (mason required at startup by lsp.lua)
 		use { 'williamboman/mason.nvim' }
 		use { 'williamboman/mason-lspconfig.nvim'}
 
 		-- taglist
 		use { 'majutsushi/tagbar' }
-		-- use { 'liuchengxu/vista.vim' }
-		-- use { 'simrat39/symbols-outline.nvim' }
 
 		-- Telescope fuzzy finder --
-		use { 'nvim-telescope/telescope.nvim', tag = '0.1.5',requires = { {'nvim-lua/plenary.nvim'} } }
-    	--use { 'nvim-treesitter/nvim-treesitter', tag= 'v0.9.2' }
+		use {
+			'nvim-telescope/telescope.nvim',
+			tag = '0.1.5',
+			requires = { {'nvim-lua/plenary.nvim'} },
+		}
+
 		use { 'nvim-treesitter/nvim-treesitter' }
 
 		use { 'nvim-tree/nvim-web-devicons', tag='v0.99' }
 
 		-- File Explorer --
-		use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' } }
+		use {
+			'nvim-tree/nvim-tree.lua',
+			requires = { 'nvim-tree/nvim-web-devicons' },
+		}
 
 		-- Tabline --
 		use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
-		use { 'lewis6991/gitsigns.nvim' } -- OPTIONAL: for git status
+		use { 'lewis6991/gitsigns.nvim' }
 		use { 'romgrk/barbar.nvim' }
 
-		-- terminal --
-		use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-			require("toggleterm").setup()
-		end }
-		-- use {'voldikss/vim-floaterm'}
+		-- terminal (has config function)
+		use {
+			"akinsho/toggleterm.nvim",
+			tag = '*',
+			config = function()
+				require("toggleterm").setup()
+			end
+		}
 
 		-- Startup time --
 		use { 'dstein64/vim-startuptime' }
@@ -91,12 +100,13 @@ return require('packer').startup(function(use)
 		use({ 'vladdoster/remember.nvim', config = [[ require('remember') ]] })
 
 		-- Startup page
-		use { 'nvimdev/dashboard-nvim', event = 'VimEnter', config = function()
-			require('dashboard').setup {
-      				-- config
-	    		}
-  			end,
-  			requires = {'nvim-tree/nvim-web-devicons'}
+		use {
+			'nvimdev/dashboard-nvim',
+			event = 'VimEnter',
+			config = function()
+				require('dashboard').setup {}
+	  		end,
+			requires = {'nvim-tree/nvim-web-devicons'}
 		}
 
 		-- git blame
@@ -105,19 +115,13 @@ return require('packer').startup(function(use)
 		-- git diffview
 		use { 'sindrets/diffview.nvim' }
 
-		--use {
-	    --	'goolord/alpha-nvim',
-    	--	requires = { 'nvim-tree/nvim-web-devicons' },
-    	--	config = function ()
- 		--       	require'alpha'.setup(require'alpha.themes.startify'.config)
-   		--	 end
-		--}
-
 		-- bookmarks
 		use { 'tomasky/bookmarks.nvim' }
 		use { 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim' }
 
-		use { 'anuvyklack/pretty-fold.nvim',
+		-- pretty-fold (has config function)
+		use {
+			'anuvyklack/pretty-fold.nvim',
 			config = function()
 				require('pretty-fold').setup()
 			end
@@ -125,10 +129,10 @@ return require('packer').startup(function(use)
 		use { 'Makaze/AnsiEsc' }
 
 		use { 'ntpeters/vim-better-whitespace' }
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
             require('packer').sync()
         end
     end)
-

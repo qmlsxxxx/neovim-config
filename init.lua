@@ -1,12 +1,11 @@
-
 --local vimrc = vim.fn.stdpath("config") .. "/vimrc.vim"
 --vim.cmd.source(vimrc)
 
 require('plugins')
 require('impatient')
 require('colorscheme')
-require('lsp')
 require('keymaps')
+vim.defer_fn(function() require('lsp') end, 0)
 --require('reload')
 
 require('config/nvim-telescope')
@@ -60,4 +59,5 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = false
   end,
   group = vim.api.nvim_create_augroup("CustomCSettings", { clear = true })
-})
+})--- Startup times for process: Primary (or UI client) ---
+
